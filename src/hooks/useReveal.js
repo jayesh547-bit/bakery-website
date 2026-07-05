@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,15 +9,32 @@ function useReveal() {
   useEffect(() => {
     const sections = gsap.utils.toArray(".reveal");
 
+    if (!sections.length) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(sections, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "none",
+      });
+
+      return;
+    }
+
     sections.forEach((section) => {
       const inner = section.querySelector(":scope > div");
 
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 82%",
-          end: "bottom 18%",
-          toggleActions: "play reverse play reverse",
+          start: isMobile ? "top 90%" : "top 82%",
+          once: true,
         },
       });
 
@@ -24,39 +42,37 @@ function useReveal() {
         section,
         {
           opacity: 0,
-          y: 120,
-          scale: 0.94,
-          filter: "blur(18px)",
+          y: isMobile ? 35 : 80,
+          scale: isMobile ? 1 : 0.97,
+          filter: isMobile ? "none" : "blur(8px)",
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          filter: "blur(0px)",
-          duration: 1.15,
-          ease: "power4.out",
+          filter: "none",
+          duration: isMobile ? 0.55 : 0.85,
+          ease: "power3.out",
+          force3D: true,
         }
       );
 
-      if (inner) {
+      if (inner && !isMobile) {
         timeline.fromTo(
           inner.children,
           {
             opacity: 0,
-            y: 70,
-            scale: 0.96,
-            filter: "blur(10px)",
+            y: 35,
           },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 0.9,
-            stagger: 0.12,
-            ease: "power4.out",
+            duration: 0.65,
+            stagger: 0.08,
+            ease: "power3.out",
+            force3D: true,
           },
-          "-=0.75"
+          "-=0.45"
         );
       }
     });
