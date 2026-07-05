@@ -18,29 +18,12 @@ function Home() {
       <Navbar />
 
       <main>
-        <section id="home">
-          <Hero />
-        </section>
-
-        <section id="menu">
-          <Products />
-        </section>
-
-        <section id="about">
-          <About />
-        </section>
-
-        <section id="gallery">
-          <Gallery />
-        </section>
-
-        <section id="testimonials">
-          <Testimonials />
-        </section>
-
-        <section id="contact">
-          <Contact />
-        </section>
+        <Hero />
+        <Products />
+        <About />
+        <Gallery />
+        <Testimonials />
+        <Contact />
       </main>
 
       <Footer />

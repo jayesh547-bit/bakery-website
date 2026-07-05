@@ -15,38 +15,25 @@ function useReveal() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // Accessibility: if user prefers less motion, show everything directly
-    if (prefersReducedMotion) {
+    if (isMobile || prefersReducedMotion) {
       gsap.set(sections, {
         opacity: 1,
         y: 0,
         scale: 1,
         filter: "none",
+        clearProps: "transform",
       });
 
       return;
     }
 
-    // Mobile: very light animation to avoid lag during fast scroll
-    if (isMobile) {
-      gsap.set(sections, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "none",
-      });
-
-      return;
-    }
-
-    // Desktop: keep premium reveal effect
     const animations = sections.map((section) => {
       const inner = section.querySelector(":scope > div");
 
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 85%",
+          start: "top 88%",
           once: true,
         },
       });
@@ -55,16 +42,14 @@ function useReveal() {
         section,
         {
           opacity: 0,
-          y: 70,
-          scale: 0.98,
-          filter: "blur(6px)",
+          y: 45,
+          scale: 0.99,
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          filter: "none",
-          duration: 0.75,
+          duration: 0.65,
           ease: "power3.out",
           force3D: true,
         }
@@ -75,17 +60,17 @@ function useReveal() {
           inner.children,
           {
             opacity: 0,
-            y: 25,
+            y: 18,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.55,
-            stagger: 0.06,
+            duration: 0.45,
+            stagger: 0.04,
             ease: "power3.out",
             force3D: true,
           },
-          "-=0.4"
+          "-=0.35"
         );
       }
 
