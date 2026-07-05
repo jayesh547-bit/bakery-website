@@ -14,35 +14,37 @@ function Home() {
   useReveal();
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#0F0F0F] text-white">
+    <div className="min-h-screen overflow-hidden bg-[#0f0f0f] text-white">
       <Navbar />
 
-      <section id="home">
-        <Hero />
-      </section>
+      <main>
+        <section id="home">
+          <Hero />
+        </section>
 
-      <section id="menu">
-        <Products />
-      </section>
+        <section id="menu">
+          <Products />
+        </section>
 
-      <section id="about">
-        <About />
-      </section>
+        <section id="about">
+          <About />
+        </section>
 
-      <section id="gallery">
-        <Gallery />
-      </section>
+        <section id="gallery">
+          <Gallery />
+        </section>
 
-      <section id="testimonials">
-        <Testimonials />
-      </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
 
-      <section id="contact">
-        <Contact />
-      </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }
 
