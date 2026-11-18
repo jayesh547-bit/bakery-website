@@ -1,0 +1,232 @@
+import chocolateCake from "../assets/images/chocolate-cake.png";
+import croissant from "../assets/images/croissant.png";
+import cupcake from "../assets/images/cupcake.png";
+import sourdough from "../assets/images/sourdough.png";
+import cookies from "../assets/images/cookies.png";
+import pastry from "../assets/images/pastry.png";
+
+export const CATEGORIES = [
+  { id: "all", label: "All Offerings" },
+  { id: "cakes", label: "Signature Cakes" },
+  { id: "pastries", label: "French Pastries" },
+  { id: "breads", label: "Artisan Breads" },
+  { id: "cupcakes-cookies", label: "Cupcakes & Cookies" },
+  { id: "custom", label: "Custom Occasion" },
+];
+
+export const PRODUCTS = [
+  {
+    id: "prod-choc-truffle",
+    name: "Belgian Dark Truffle Cake",
+    category: "cakes",
+    categoryLabel: "Signature Cakes",
+    price: 899,
+    rating: 4.9,
+    reviewCount: 236,
+    badge: "Bestseller",
+    isEggless: true,
+    dietary: ["100% Eggless", "Vegetarian"],
+    prepTime: "Same Day Available",
+    image: chocolateCake,
+    description:
+      "Handcrafted layers of moist cocoa sponge soaked in espresso ganache, smothered in silky 64% Belgian dark chocolate truffle.",
+    allowCustomMessage: true,
+    options: {
+      sizes: [
+        { label: "500g (Serves 4-5)", extraPrice: 0 },
+        { label: "1kg (Serves 8-10)", extraPrice: 650 },
+        { label: "1.5kg (Serves 12-15)", extraPrice: 1250 },
+      ],
+      dietaryChoices: ["100% Eggless (Standard)", "Gluten-Friendly (+₹150)"],
+      flavors: ["Belgian Dark (Classic)", "Salted Caramel Chocolate", "Mocha Hazelnut"],
+    },
+  },
+  {
+    id: "prod-butter-croissant",
+    name: "AOP Butter Croissant",
+    category: "pastries",
+    categoryLabel: "French Pastries",
+    price: 149,
+    rating: 4.8,
+    reviewCount: 184,
+    badge: "Baked 6:00 AM",
+    isEggless: false,
+    dietary: ["French Butter", "Contains Egg"],
+    prepTime: "Baked Fresh Daily",
+    image: croissant,
+    description:
+      "Traditional 72-layer laminated pastry made with cultured French butter. Impossibly flaky exterior with a delicate honeycomb crumb.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Single Piece", extraPrice: 0 },
+        { label: "Box of 2", extraPrice: 130 },
+        { label: "Box of 4 (Save 15%)", extraPrice: 240 },
+      ],
+      dietaryChoices: ["Classic Viennoiserie (Contains Egg)", "Eggless Wash Alternative"],
+      flavors: ["Classic AOP Butter", "Almond Frangipane (+₹40)", "Dark Chocolate Drizzle (+₹30)"],
+    },
+  },
+  {
+    id: "prod-artisan-sourdough",
+    name: "San Francisco Country Sourdough",
+    category: "breads",
+    categoryLabel: "Artisan Breads",
+    price: 249,
+    rating: 4.9,
+    reviewCount: 312,
+    badge: "36h Fermented",
+    isEggless: true,
+    dietary: ["100% Vegan", "No Preservatives", "Naturally Fermented"],
+    prepTime: "Limited Batch",
+    image: sourdough,
+    description:
+      "Stone-milled whole wheat and unbleached bread flour slow-fermented for 36 hours. Blistered, caramelized crust with open, airy crumb.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Whole Boule (750g)", extraPrice: 0 },
+        { label: "Evenly Pre-Sliced (750g)", extraPrice: 0 },
+        { label: "Double Loaf Pack", extraPrice: 220 },
+      ],
+      dietaryChoices: ["100% Vegan (Wild Yeast Starter)", "Sesame & Herb Crust (+₹30)"],
+      flavors: ["Classic Country White", "Rosemary & Roasted Garlic (+₹40)", "Walnut & Cranberry (+₹60)"],
+    },
+  },
+  {
+    id: "prod-red-velvet-cupcake",
+    name: "Madagascar Vanilla Velvet Cupcakes",
+    category: "cupcakes-cookies",
+    categoryLabel: "Cupcakes & Cookies",
+    price: 119,
+    rating: 4.8,
+    reviewCount: 148,
+    badge: "Popular Gift",
+    isEggless: true,
+    dietary: ["100% Eggless", "Vegetarian"],
+    prepTime: "Ready to Eat",
+    image: cupcake,
+    description:
+      "Velvety sponge infused with pure Madagascar bourbon vanilla bean, crowned with piped Philadelphia cream cheese buttercream frosting.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Single Cupcake", extraPrice: 0 },
+        { label: "Box of 4 (Assorted)", extraPrice: 210 },
+        { label: "Party Box of 6", extraPrice: 380 },
+      ],
+      dietaryChoices: ["100% Eggless", "Low Sugar Recipe"],
+      flavors: ["Red Velvet Cream Cheese", "Double Dark Belgian", "Salted Caramel Buttercream"],
+    },
+  },
+  {
+    id: "prod-choc-chunk-cookies",
+    name: "Sea Salt Dark Chocolate Cookies",
+    category: "cupcakes-cookies",
+    categoryLabel: "Cupcakes & Cookies",
+    price: 189,
+    rating: 4.9,
+    reviewCount: 205,
+    badge: "Chef's Pick",
+    isEggless: true,
+    dietary: ["100% Eggless", "Belgian Chocolate"],
+    prepTime: "Fresh Warm Batch",
+    image: cookies,
+    description:
+      "Thick, chewy cookies with crisp golden edges, molten Callebaut chocolate chunks, and a light sprinkling of Maldon sea salt flakes.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Pack of 2 Giant Cookies", extraPrice: 0 },
+        { label: "Tin of 5 Cookies (Gift Box)", extraPrice: 220 },
+        { label: "Tin of 10 Cookies (Party Box)", extraPrice: 590 },
+      ],
+      dietaryChoices: ["100% Eggless"],
+      flavors: ["Sea Salt Dark Chocolate", "Triple Chocolate Pecan (+₹30)", "Toasted Hazelnut Nutella (+₹40)"],
+    },
+  },
+  {
+    id: "prod-golden-danish",
+    name: "Wild Berry & Custard Golden Danish",
+    category: "pastries",
+    categoryLabel: "French Pastries",
+    price: 179,
+    rating: 4.7,
+    reviewCount: 96,
+    badge: "Morning Favorite",
+    isEggless: false,
+    dietary: ["Fresh Berries", "Real Cream"],
+    prepTime: "Baked Fresh Daily",
+    image: pastry,
+    description:
+      "Laminated puff pastry cups filled with slow-cooked Tahitian vanilla bean pastry cream and topped with seasonal wild berry compote.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Single Danish", extraPrice: 0 },
+        { label: "Duo Pack", extraPrice: 160 },
+        { label: "Breakfast Box (4 Pastries)", extraPrice: 320 },
+      ],
+      dietaryChoices: ["Regular (Tahitian Custard)", "Eggless Cream Alternative"],
+      flavors: ["Wild Berry Compote", "Apple Cinnamon Crisp", "Pistachio Custard (+₹30)"],
+    },
+  },
+  {
+    id: "prod-custom-celebration-cake",
+    name: "Custom Artisanal Celebration Cake",
+    category: "custom",
+    categoryLabel: "Custom Occasion",
+    price: 1299,
+    rating: 5.0,
+    reviewCount: 164,
+    badge: "Bespoke Design",
+    isEggless: true,
+    dietary: ["100% Eggless", "Custom Dietary on Request"],
+    prepTime: "24h Advance Notice",
+    image: chocolateCake,
+    description:
+      "Bespoke tiered or floral cake tailored for birthdays, anniversaries, and milestones. Finished with edible gold leaf, fresh botanicals, or customized piping.",
+    allowCustomMessage: true,
+    options: {
+      sizes: [
+        { label: "1kg (Serves 8-10)", extraPrice: 0 },
+        { label: "1.5kg (Serves 12-15)", extraPrice: 550 },
+        { label: "2kg Tiered (Serves 18-22)", extraPrice: 1200 },
+        { label: "3kg Grand Tier (Serves 30+)", extraPrice: 2400 },
+      ],
+      dietaryChoices: ["100% Eggless (Standard)", "Regular (Buttercream)", "Gluten-Friendly (+₹250)"],
+      flavors: [
+        "Opera Belgian Dark Truffle",
+        "Lotus Biscoff & Salted Caramel",
+        "Madagascar Vanilla & Fresh Strawberries",
+        "Ferrero Hazelnut Crunch",
+      ],
+    },
+  },
+  {
+    id: "prod-parisian-brioche",
+    name: "Golden Butter Brioche Loaf",
+    category: "breads",
+    categoryLabel: "Artisan Breads",
+    price: 289,
+    rating: 4.8,
+    reviewCount: 118,
+    badge: "French Classic",
+    isEggless: false,
+    dietary: ["French Butter", "Ultra Soft"],
+    prepTime: "Daily Morning",
+    image: sourdough,
+    description:
+      "Rich, feather-light French enriched bread with golden caramelized crust. Perfect for gourmet French toast, morning toasts, or sliders.",
+    allowCustomMessage: false,
+    options: {
+      sizes: [
+        { label: "Full Loaf (500g)", extraPrice: 0 },
+        { label: "Thick-Sliced (For French Toast)", extraPrice: 0 },
+        { label: "Brioche Bun Pack (Pack of 4)", extraPrice: 40 },
+      ],
+      dietaryChoices: ["Traditional French Butter", "Eggless Brioche Alternative"],
+      flavors: ["Classic Golden Brioche", "Chocolate Swirl Brioche (+₹60)", "Cinnamon Raisin Brioche (+₹50)"],
+    },
+  },
+];

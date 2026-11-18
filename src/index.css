@@ -1,18 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-primary-yellow: #fbbf24;
+  --color-primary-amber: #f59e0b;
+  --color-dark-bg: #0f0f0f;
+  --color-dark-surface: #181818;
+  --color-dark-card: #202020;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: var(--font-sans);
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: #0f0f0f;
+  background-color: #0f0f0f;
+  color: #ffffff;
   overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
 }
 
 img,
@@ -22,8 +40,31 @@ video {
 }
 
 button,
-a {
+a,
+input,
+select,
+textarea {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom black & yellow scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 9999px;
+  border: 2px solid #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24;
 }
 
 .no-scrollbar {
@@ -32,6 +73,35 @@ a {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Keyframes for subtle bakery animations */
+@keyframes warmPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+.animate-warm-pulse {
+  animation: warmPulse 2s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 5s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
