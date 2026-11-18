@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle, Heart } from "lucide-react";
 
 const reviews = [
@@ -56,7 +56,7 @@ export default function Testimonials() {
   const sliderRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  const scrollSlider = (direction = "right") => {
+  const scrollSlider = useCallback((direction = "right") => {
     const slider = sliderRef.current;
     if (!slider) return;
 
@@ -80,7 +80,7 @@ export default function Testimonials() {
         slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     }
-  };
+  }, []);
 
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -95,7 +95,7 @@ export default function Testimonials() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, scrollSlider]);
 
   return (
     <section id="testimonials" className="reveal bg-[#0f0f0f] px-4 py-24 text-white sm:px-6 sm:py-28 lg:px-10">
@@ -143,14 +143,14 @@ export default function Testimonials() {
           {reviews.map((item) => (
             <article
               key={item.name}
-              className="flex min-w-[300px] sm:min-w-[380px] md:min-w-[420px] snap-start flex-col justify-between rounded-3xl border border-white/10 bg-white/6 p-7 transition duration-300 hover:border-amber-400/40 hover:bg-white/10"
+              className="flex min-w-[300px] sm:min-w-[380px] md:min-w-[420px] snap-start flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-7 transition duration-300 hover:border-amber-400/40 hover:bg-white/10"
             >
               <div>
                 <div className="flex items-center justify-between">
                   <Quote className="text-amber-400" size={28} />
                   <div className="flex gap-1 text-amber-400">
                     {Array.from({ length: item.rating }).map((_, i) => (
-                      <Star key={i} size={15} fill="currentColor" />
+                      <Star key={`${item.name}-star-${i}`} size={15} fill="currentColor" />
                     ))}
                   </div>
                 </div>

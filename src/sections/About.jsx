@@ -76,7 +76,7 @@ export default function About() {
               return (
                 <article
                   key={pillar.title}
-                  className="flex-1 rounded-3xl border border-white/10 bg-white/6 p-6 transition duration-300 hover:border-amber-400/40 hover:bg-white/10"
+                  className="flex-1 rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-amber-400/40 hover:bg-white/10"
                 >
                   <div className="flex items-center gap-3">
                     <div className="rounded-xl bg-amber-400/20 p-2.5 text-amber-400">

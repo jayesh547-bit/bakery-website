@@ -100,7 +100,7 @@ export default function Gallery() {
             return (
               <article
                 key={item.title}
-                className={`grid items-center gap-8 rounded-3xl border border-white/10 bg-white/6 p-5 transition duration-500 hover:border-amber-400/40 hover:bg-white/10 sm:p-8 md:grid-cols-2 md:gap-12 ${
+                className={`grid items-center gap-8 rounded-3xl border border-white/10 bg-white/5 p-5 transition duration-500 hover:border-amber-400/40 hover:bg-white/10 sm:p-8 md:grid-cols-2 md:gap-12 ${
                   isReversed ? "md:[&>.gallery-image-col]:order-2" : ""
                 }`}
               >

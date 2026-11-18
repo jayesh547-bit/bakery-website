@@ -157,7 +157,7 @@ export default function Products() {
               return (
                 <article
                   key={item.id}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/6 p-5 transition duration-300 hover:-translate-y-2 hover:border-amber-400/40 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/60 sm:p-6"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-2 hover:border-amber-400/40 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/60 sm:p-6"
                 >
                   {/* Top Wishlist Button */}
                   <button
